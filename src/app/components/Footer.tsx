@@ -49,7 +49,11 @@ const Footer = () => {
         </div>
         <Typography variant="caption" className="text-white">
           This web page was created by{" "}
-          <Link href="https://www.github.com/aorlanes" target="_blank">
+          <Link
+            href="https://www.github.com/aorlanes"
+            target="_blank"
+            className="text-white"
+          >
             Anjela Orlanes
           </Link>
           ™

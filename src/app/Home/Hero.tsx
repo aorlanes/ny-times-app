@@ -22,7 +22,23 @@ const Hero = ({ article, loading = false }: HeroProps) => {
           className="w-full object-cover h-[512px]"
         />
       )}
-      <div className="w-1/2 bg-black/60 text-white p-5 rounded-lg absolute z-10 bottom-6 left-6">
+      <div
+        className={`
+          absolute
+          z-10
+          p-5
+          text-white
+          bg-gradient-to-b
+          from-black/60
+          to-transparent
+          w-full
+          sm:to-black/60
+          sm:rounded-lg
+          sm:w-1/2
+          sm:bottom-6
+          sm:left-6
+        `}
+      >
         <Typography variant="h5" component="h1" className="pb-2">
           {article?.headline.main}
         </Typography>
@@ -40,6 +56,13 @@ const Hero = ({ article, loading = false }: HeroProps) => {
             Read more
           </Link>
         )}
+      </div>
+      <div className="max-w-1/6 bg-black/40 text-white px-2 absolute z-10 bottom-0 right-0 text-end">
+        <Typography variant="caption">{article?.byline.original}</Typography>
+        {" • "}
+        <Typography variant="caption">
+          {article?.pub_date && new Date(article.pub_date).toDateString()}
+        </Typography>
       </div>
     </div>
   );

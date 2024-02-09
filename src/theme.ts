@@ -29,6 +29,9 @@ const theme = createTheme({
     },
   },
   palette: {
+    primary: {
+      main: "#000000",
+    },
     white: {
       main: "#ffffff",
     },
@@ -43,13 +46,13 @@ const theme = createTheme({
           props: { variant: "contained" },
           style: {
             color: "white",
-            borderRadius: 50,
+            borderRadius: 5,
           },
         },
         {
           props: { variant: "outlined" || "text" },
           style: {
-            borderRadius: 50,
+            borderRadius: 5,
           },
         },
       ],

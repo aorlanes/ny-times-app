@@ -13,10 +13,16 @@ import Carousel from "../components/Carousel";
 import ArticleCard from "../components/ArticleCard";
 import Container from "../components/Container";
 import ErrorAlert from "../components/ErrorAlert";
+import { Article } from "@/models/Article";
+import { useState } from "react";
+import InfoModal from "./InfoModal";
 
 const HomePage = () => {
   const isTablet = useMediaQuery(theme.breakpoints.down("md"));
   const isDesktop = useMediaQuery(theme.breakpoints.down("lg"));
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalArticle, setModalArticle] = useState<Article>();
 
   const {
     articles,
@@ -29,6 +35,11 @@ const HomePage = () => {
     loading: loadingHeroArticle,
   } = useGetHeroArticle();
 
+  const onArticleCardClick = (article: Article) => {
+    setModalArticle(article);
+    setIsModalOpen(true);
+  };
+
   const alertOpen =
     ((!loadingArticles && errorArticles) ||
       (!loadingHeroArticle && errorHeroArticle)) ??
@@ -36,7 +47,13 @@ const HomePage = () => {
 
   const articleCards = articles
     ? articles.map((article, index) => {
-        return <ArticleCard key={index} article={article} />;
+        return (
+          <ArticleCard
+            key={index}
+            article={article}
+            onClick={onArticleCardClick}
+          />
+        );
       })
     : [];
 
@@ -72,6 +89,13 @@ const HomePage = () => {
           </Card>
         )}
       </Container>
+      {modalArticle && (
+        <InfoModal
+          article={modalArticle}
+          open={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
     </div>
   );
 };
