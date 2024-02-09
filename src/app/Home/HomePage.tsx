@@ -51,7 +51,7 @@ const HomePage = () => {
   return (
     <div className="relative">
       <ErrorAlert open={alertOpen} />
-      {article && <Hero article={article} loading={loadingHeroArticle} />}
+      <Hero article={article} loading={loadingHeroArticle} />
       <Container>
         <Typography
           variant="h5"

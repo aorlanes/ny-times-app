@@ -1,4 +1,4 @@
-import { Typography, Link } from "@mui/material";
+import { Typography, Link, LinearProgress } from "@mui/material";
 import { Article } from "../../models/Article";
 
 type HeroProps = {
@@ -9,7 +9,11 @@ type HeroProps = {
 const Hero = ({ article, loading = false }: HeroProps) => {
   const jumboImage = article?.multimedia[9];
 
-  return (
+  return loading ? (
+    <div className="flex w-full">
+      <LinearProgress color="inherit" className="w-full" />
+    </div>
+  ) : (
     <div className="relative w-full flex">
       {jumboImage && (
         <img
