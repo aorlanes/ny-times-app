@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - React (^18)
 - Node (^20)
 - TypeScript (^5)
-- Enzyme + Jest
+- Jest
 - [TailwindCSS](https://tailwindcss.com/docs/installation)
 - [Material UI](https://mui.com/material-ui/getting-started/)
 - [New York Times API](https://developer.nytimes.com/)
