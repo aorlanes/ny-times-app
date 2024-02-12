@@ -56,6 +56,7 @@ const Carousel = ({
     currentItem > -1 &&
       currentItem < itemsCount &&
       carouselRef.current &&
+      carouselRef.current.scroll &&
       carouselRef.current.scroll({
         top: 0,
         left: itemRefs[currentItem].current!.offsetLeft,

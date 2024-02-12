@@ -24,10 +24,12 @@ const ErrorAlert = ({ open, message }: ErrorAlertProps) => {
             onClick={() => {
               setIsForceClose(true);
             }}
+            data-testid="error-alert-button"
           >
             <CloseIcon fontSize="inherit" />
           </IconButton>
         }
+        data-testid="error-alert"
       >
         {message
           ? message
