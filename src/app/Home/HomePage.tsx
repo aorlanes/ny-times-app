@@ -59,8 +59,11 @@ const HomePage = () => {
 
   const loadingCards = [...Array(10)].map((_, index) => {
     return (
-      <Card className="h-[300px] w-[260px] flex justify-center items-center bg-black/10 m-[9px]">
-        <CircularProgress color="inherit" className="text-black" key={index} />
+      <Card
+        key={index}
+        className="h-[300px] w-[260px] flex justify-center items-center bg-black/10 m-[9px]"
+      >
+        <CircularProgress color="inherit" className="text-black" />
       </Card>
     );
   });
